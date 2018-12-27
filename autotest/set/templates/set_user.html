@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试用例管理</title>
+    {%load staticfiles%}
+    <link rel="stylesheet" href="{% static '/bootstrap-3.3.7/dist/css/bootstrap.min.css'%}">
+    <script src="{% static 'jquery-3.3.1.min.js'%}"></script>
+    <script src="{% static '/bootstrap-3.3.7/dist/js/bootstrap.min.js'%}"></script>
+</head>
+<body role="document">
+    <ol class="breadcrumb">
+      <li><a href="{%url 'welcome'%}">Home</a></li>
+      <li class="active">系统配置管理</li>
+      <li class="active">系统用户管理</li>
+    </ol>
+    <!--搜索栏-->
+    <div class="page-header" >
+        <nav class="navbar">
+          <form class="navbar-form navbar-left" role="search" method="get" action="{%url 'set_user'%}">
+            <input class="form-control mr-sm-2" type="search" placeholder="用户名称" aria-label="Search" name="user_name" value="{{search_username}}">
+            <button class="btn btn-default my-2 my-sm-0" type="submit">搜索</button>
+          </form>
+        </nav>
+    </div>
+
+    <!--用例列表-->
+    <div class="row" style="padding-top:10px;width:100%;">
+        <div class="col-md-11">
+            <table class="table table-striped table-hover" style="table-layout:fixed">
+                <style>
+                    td{
+                        white-space:nowrap;
+                        overflow:hidden;
+                        text-overflow:ellipsis;
+                    }
+                </style>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>用户名</th>
+                        <th>密码</th>
+                        <th>邮箱</th>
+                        <th>最近登录日期</th>
+                        <th>注册日期</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users%}
+                    <tr>
+                        <td>{{user.id}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.password}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.last_login}}</td>
+                        <td>{{user.date_joined}}</td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+          {%if users.has_previous%}
+              <li class="page-item " ><a class="page-link" href="/user/?page=1&user_name={{search_username}}">首页</a></li>
+              <li class="page-item "><a class="page-link" href="/user/?page={{users.previous_page_number}}&user_name={{search_username}}" >上一页</a></li>
+          {% else %}
+              <li class="page-item disabled" ><a class="page-link" href="#">首页</a></li>
+              <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">上一页</a></li>
+          {% endif %}
+          {% for num in users.paginator.page_range%}
+            {% if num == currentPage %}
+                <li class="page-item active"><a class="page-link" href="/user/?page={{num}}&user_name={{search_username}}">{{num}}</a></li>
+            {% else %}
+                <li class="page-item"><a class="page-link" href="/user/?page={{num}}&user_name={{search_username}}">{{num}}</a></li>
+            {% endif %}
+          {% endfor %}
+          {%if users.has_next%}
+              <li class="page-item"><a class="page-link" href="/user/?page={{users.next_page_number}}&user_name={{search_username}}">下一页</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="/user/?page={{users.paginator.num_pages}}&user_name={{search_username}}">尾页</a></li>
+          {% else %}
+              <li class="page-item disabled"><a class="page-link" href="#">下一页</a></li>
+              <li class="page-item disabled"><a class="page-link" href="#" >尾页</a>
+              </li>
+          {% endif %}
+          <li class="page-item disabled"><a class="page-link" href="#">共{{users.paginator.count}}条</a></li>
+      </ul>
+    </nav>
+</body>
+</html>

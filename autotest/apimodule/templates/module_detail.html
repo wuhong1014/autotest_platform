@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增|修改</title>
+    {%load staticfiles%}
+    <link rel="stylesheet" href="{% static '/bootstrap-3.3.7/dist/css/bootstrap.min.css'%}">
+    <script src="{% static 'jquery-3.3.1.min.js'%}"></script>
+    <script src="{% static '/bootstrap-3.3.7/dist/js/bootstrap.min.js'%}"></script>
+    <script>
+    var countNum=0;
+    function getcheckboxlen(cname){
+        var count=0
+        var checkboxlist=document.getElementsByName(cname);
+        for(var i=0;i<=checkboxlist.length-1;i++){
+            if(checkboxlist[i].type=="checkbox"){
+                countNum=count
+                count+=1;
+            }
+       }
+    }
+    function checkedThis(cid){
+       var boxArray = document.getElementById(cid);
+       if(boxArray.type=="checkbox"&& boxArray.checked){
+               boxArray.checked = true;
+               boxArray.value = 1;
+       }else{
+               boxArray.checked = false;
+               boxArray.value = 0;
+       }
+    }
+
+    function checkForm(ename)
+    {
+           var t1 = document.getElementsByName(ename);
+           for(i=0;i<t1.length;i++)
+           {
+               if(t1[i].type == "checkbox")
+               {
+                   if(!(t1[i].checked))
+                   {
+                       t1[i].checked = true;
+                   }
+               }
+           }
+           return true;
+    }
+    function delRow(r){
+        var table=document.getElementById("apis_table");
+        var i=r.parentNode.parentNode.rowIndex
+        var row=table.deleteRow(i);
+    }
+    function displayResult(eid){
+        countNum+=1
+        var table=document.getElementById(eid);
+        var row=table.insertRow(-1);
+        var cell1=row.insertCell(0);
+        var cell2=row.insertCell(1);
+        var cell3=row.insertCell(2);
+        var cell4=row.insertCell(3);
+        var cell5=row.insertCell(4);
+        var cell6=row.insertCell(5);
+        var cell7=row.insertCell(6);
+        var cell8=row.insertCell(7);
+        var cell9=row.insertCell(8);
+        var cell10=row.insertCell(9);
+        cell10.hidden=true
+        cell1.innerHTML='<input name="apino" class="form-control" required>';
+        cell2.innerHTML='<input name="apiname" class="form-control" required>';
+        cell3.innerHTML='<input name="apiheaders" class="form-control" >';
+        cell4.innerHTML='<input name="apiurl" class="form-control" required>';
+        cell5.innerHTML='<div class="form-group" ><select name="apimethod" class="form-control" required><option ></option><option >get</option><option >post</option><option>put</option><option>delete</option><option>patch</option></select></div>';
+        cell6.innerHTML='<input name="apiparamvalue" class="form-control"/>';
+        cell7.innerHTML='<input name="apiresult" class="form-control" required>';
+        cell8.innerHTML='<input name="apiexec" type="checkbox" id="apiexec'+countNum+'" value="0" onclick="checkedThis(this.id);"/>';
+        cell9.innerHTML="<a onclick='delRow(this)'><i class='glyphicon glyphicon-remove'></i></a>";
+        cell10.innerHTML='<input name="apiid" value="" class="form-control" />';
+    }
+    </script>
+</head>
+<body role="document">
+    <ol class="breadcrumb">
+      <li><a href="{%url 'welcome'%}">Home</a></li>
+      <li><a href="{%url 'module_manage'%}">功能模块管理</a></li>
+      <li class="active">功能模块 新增|修改</li>
+    </ol>
+    <!--详情-->
+    <form class="form-horizontal" role="form"  method="post" action="{%url 'module_save'%}?module_id={{module_id}}" onsubmit="checkForm('apiexec');checkForm('isexec');">
+        {%csrf_token%}
+            <h4>功能模块新增|编辑</h4>
+            <table class="table table-striped ">
+                {%if modules%}
+                {%for module in modules%}
+                <tr>
+                    <td class="col-sm-2">模块名称:</td>
+                    <td ><input name="modulename" class="form-control " type="text" value="{{module.modulename}}" style = "width:400px;" required></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">模块描述:</td>
+                    <td ><input name="moduledesc" class="form-control" type="text" value="{{module.moduledesc}}" style = "width:400px;"></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">模块负责人:</td>
+                    <td ><input name="moduler" class="form-control" type="text" value="{{module.moduler}}" style = "width:400px;" required></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">是否执行:</td>
+                    {%if module.isexec%}
+                     <td><input name="isexec" id="isexec" type="checkbox" class="checkbox" checked="checked" value="{{module.isexec}}" onclick="checkedThis(this.id);"></td>
+                      {%else%}
+                      <td><input name="isexec" id="isexec" type="checkbox" class="checkbox" value="{{module.isexec}}" onclick="checkedThis(this.id);"></td>
+                      {%endif%}
+                </tr>
+                {%endfor %}
+                {%else%}
+                <tr>
+                    <td class="col-sm-2">模块名称:</td>
+                    <td ><input name="modulename" class="form-control " type="text" value="" style = "width:400px;" required></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">模块描述:</td>
+                    <td ><input name="moduledesc" class="form-control" type="text" value="" style = "width:400px;"></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">模块负责人:</td>
+                    <td ><input name="moduler" class="form-control" type="text" value="" style = "width:400px;" required></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">是否执行:</td>
+                    <td ><input name="isexec" class="checkbox" type="checkbox" value="0" ></td>
+                </tr>
+                {%endif%}
+            </table>
+        <hr>
+            <table class="table table-striped" id='apis_table'>
+                <caption>单一场景接口</caption>
+                <thead>
+                  <tr>
+                      <th>接口用例编号</th>
+                     <th>接口名称</th>
+                      <th>headers</th>
+                     <th>URL地址</th>
+                      <th>方法</th>
+                     <th>请求参数和值</th>
+                      <th>函数</th>
+                      <th>预期结果</th>
+                      <th>执行</th>
+                      <th>删除</th>
+                  </tr>
+               </thead>
+               <tbody>
+                {%if not apis%}
+                    <tr >
+                        <td><input name="apino" type="text" class="form-control " value="" required></td>
+                         <td><input name="apiname" type="text" class="form-control " value="" required> </td>
+                        <td><input name="apiheaders" type="text" class="form-control " value="" > </td>
+                         <td><input name="apiurl" type="text" class="form-control" value=""  required></td>
+                          <td>
+                              <div class="form-group" >
+                                    <select  class="form-control" name="apimethod">
+                                        <option ></option>
+                                        {%for method in methods%}
+                                        <option >{{method}}</option>
+                                        {%endfor%}
+                                    </select>
+                              </div>
+                          </td>
+                         <td><input name="apiparamvalue" type="text" class="form-control"  ></td>
+                        <td><input name="apifunc" type="text" class="form-control" value=""  required></td>
+                          <td><input name="apiresult" type="text" class="form-control" required></td>
+                         <td><input name="apiexec" id="apiexec0" type="checkbox" class="checkbox" value="0" onclick="checkedThis(this.id);"></td>
+                        <td>
+                            <a onclick='delRow(this)'><i class='glyphicon glyphicon-remove'></i></a>
+                          </td>
+                        <td hidden="hidden"><input name="apiid" value="" class="form-control" /></td>
+                      </tr>
+                {%else%}
+                  {% for api in apis%}
+                  <tr >
+                      <td><input name="apino" type="text" class="form-control " value="{{api.apino}}" required></td>
+                     <td><input name="apiname" type="text" class="form-control " value="{{api.apiname}}" required></td>
+                      <td data-toggle="tooltip" data-placement="right" title="{{api.apiheaders}}"><input name="apiheaders" type="text" class="form-control " value="{{api.apiheaders}}" > </td>
+                     <td><input name="apiurl" type="text" class="form-control" value="{{api.apiurl}}" required></td>
+                      <td>
+                          <div class="form-group" >
+                                <select name="apimethod" class="form-control" required>
+                                    <option ></option>
+                                    {%for method in methods %}
+                                        {%if api.apimethod == method %}
+                                            <option selected="selected">{{api.apimethod}}</option>
+                                        {%else%}
+                                            <option >{{method}}</option>
+                                        {%endif%}
+                                    {%endfor%}
+                                </select>
+                          </div>
+                      </td>
+                     <td data-toggle="tooltip" data-placement="right" title="{{api.apiparamvalue}}"><input  name="apiparamvalue" type="text" class="form-control" value="{{api.apiparamvalue}}"></td>
+                      <td><input name="apifunc" type="text" class="form-control" value="{{api.apifunc}}"  required></td>
+                      <td><input name="apiresult" type="text" class="form-control"  value="{{api.apiresult}}" required></td>
+                      {%if api.apiexec%}
+                     <td><input name="apiexec" id="apiexec_{{api.id}}" type="checkbox" class="checkbox" checked="checked" value="1" onclick="checkedThis(this.id);"></td>
+                      {%else%}
+                      <td><input name="apiexec" id="apiexec_{{api.id}}" type="checkbox" class="checkbox" value="0" onclick="checkedThis(this.id);"></td>
+                      {%endif%}
+                      <td>
+                        <a onclick='delRow(this)'><i class='glyphicon glyphicon-remove'></i></a>
+                      </td>
+                      <td hidden="hidden"><input name="apiid" value="{{api.id}}" class="form-control" /></td>
+                  </tr>
+                  {% endfor %}
+               {%endif%}
+               </tbody>
+
+            </table>
+            <table class="table table-striped">
+
+                  <tr>
+                      <td><a  onclick="getcheckboxlen('apiexec');displayResult('apis_table');"> 添加另一个 单一场景接口</a></td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td >
+                          <div class="col-sm-offset-8">
+                              <button class="btn"><a href="{%url 'module_manage'%}">取消</a></button>
+                              <button type="submit" class="btn btn-primary" >保存</button>
+                          </div>
+                      </td>
+                  </tr>
+            </table>
+    </form>
+</body>
+</html>

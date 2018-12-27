@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load staticfiles%}
+    <!--{%load bootstrap4%}
+    {%bootstrap_css%}
+    {%bootstrap_javascript%}-->
+    <meta charset="UTF-8">
+    <title>test</title>
+    <link rel="stylesheet" href="{% static '/bootstrap-3.3.7/dist/css/bootstrap.min.css'%}">
+    <script src="{% static 'jquery-3.3.1.min.js'%}"></script>
+    <script src="{% static '/bootstrap-3.3.7/dist/js/bootstrap.min.js'%}"></script>
+</head>
+<body role="document">
+<div class="container">
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion"
+                    href="#moduleManage">
+                    功能模块管理
+                    </a>
+                </h4>
+            </div>
+            <div id="moduleManage" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <ul class="list-group">
+                          <li class="list-group-item"><a href="{%url 'module_manage'%}" target="mainFrame">功能模块管理</a></li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion"
+                    href="#caseManage">
+                    测试用例管理
+                </a>
+                </h4>
+            </div>
+            <div id="caseManage" class="panel-collapse collapse">
+            <div class="panel-body">
+                <ul class="list-group">
+                  <li class="list-group-item"><a href="{%url 'apitest_manage'%}" target="mainFrame">流程接口用例管理</a></li>
+                  <li class="list-group-item"><a href="{%url 'apis_manage'%}" target="mainFrame">单一接口用例管理</a></li>
+              </ul>
+            </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion"
+                    href="#reportManage">
+                    测试报告管理
+                    </a>
+                </h4>
+            </div>
+            <div id="reportManage" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <ul class="list-group" >
+                        <li class="list-group-item"><a href="{%url 'report_manage' 'api'%}" target="mainFrame">API测试报告</a></li>
+                        <li class="list-group-item"><a href="{%url 'report_manage' 'ui'%}" target="mainFrame">UI测试报告</a></li>
+                        <li class="list-group-item"><a href="{%url 'report_manage' 'app'%}" target="mainFrame">APP测试报告</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion"
+                    href="#taskManage">
+                    定时任务管理
+                    </a>
+                </h4>
+            </div>
+            <div id="taskManage" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <ul class="list-group" >
+                        <li class="list-group-item"><a href="{%url 'task_manage'%}" target="mainFrame">定时任务管理</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion"
+                    href="#sysManage">
+                    系统设置管理
+                    </a>
+                </h4>
+            </div>
+            <div id="sysManage" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="{%url 'set_manage'%}" target="mainFrame">系统配置管理</a></li>
+                        <li class="list-group-item"><a href="{%url 'set_user'%}" target="mainFrame">系统用户管理</a></li>
+                    </ul>
+                </div>
+            </div>
+    </div>
+</div>
+</body>
+</html>

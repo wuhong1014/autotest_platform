@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增|修改</title>
+    {%load staticfiles%}
+    <link rel="stylesheet" href="{% static '/bootstrap-3.3.7/dist/css/bootstrap.min.css'%}">
+    <script src="{% static 'jquery-3.3.1.min.js'%}"></script>
+    <script src="{% static '/bootstrap-3.3.7/dist/js/bootstrap.min.js'%}"></script>
+    <script>
+
+    function checkedThis(cid){
+       var boxArray = document.getElementById(cid);
+       if(boxArray.type=="checkbox"&& boxArray.checked){
+               boxArray.checked = true;
+               boxArray.value = 1;
+       }else{
+               boxArray.checked = false;
+               boxArray.value = 0;
+       }
+    }
+
+    function checkForm(ename)
+    {
+           var t1 = document.getElementsByName(ename);
+           for(i=0;i<t1.length;i++)
+           {
+               if(t1[i].type == "checkbox")
+               {
+                   if(!(t1[i].checked))
+                   {
+                       t1[i].checked = true;
+                   }
+               }
+           }
+           return true;
+    }
+    function changeSelect(curselectid,otherselectid){
+        var selected_f = document.getElementById(curselectid);
+        var select_s = document.getElementById(otherselectid);
+        if (selected_f.value != '-1'){
+            select_s.value = '-1';
+            }
+    }
+    function checkselected(interval_id,crontab_id){
+        var interval = document.getElementById(interval_id);
+        var crontab = document.getElementById(crontab_id);
+        if (interval.value == '-1' && crontab.value == '-1'){
+            alert("interval | crontab 需要选择一个！");
+            return false;
+        }
+        return true;
+
+    }
+    </script>
+</head>
+<body role="document">
+    <ol class="breadcrumb">
+      <li><a href="{%url 'welcome'%}">Home</a></li>
+      <li><a href="{%url 'module_manage'%}">流程接口用例管理</a></li>
+      <li class="active">任务管理 新增|修改</li>
+    </ol>
+    <!--详情-->
+    <form class="form-horizontal" role="form" action="{%url 'task_save'%}?task_id={{task_id}}" method="post" onsubmit="checkForm('enabled');">
+        {%csrf_token%}
+
+            <h4>流程接口用例 新增|编辑</h4>
+            <table class="table table-striped ">
+                {%if tasks%}
+                {%for task in tasks%}
+                <tr>
+                    <td class="col-sm-2">任务名称:</td>
+                    <td ><input name="task_name" class="form-control" type="text" value="{{task.name}}" style = "width:400px;" required></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">任务模块:</td>
+                    <td >
+                        <select id="app_task_name" name="app_task_name" class="col-sm-1 form-control" style = "width:400px;"  required>
+                            {%for apptaskname in apptasknames%}
+                            {%if task.task == apptaskname %}
+                            <option value="{{apptaskname}}" selected>{{apptaskname}}</option>
+                            {%else%}
+                            <option value="{{apptaskname}}">{{apptaskname}}</option>
+                            {%endif%}
+                            {%endfor%}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">开启:</td>
+                    {%if task.enabled%}
+                    <td ><input id="id_enabled" name="enabled"  type="checkbox" value="1"  checked onclick="checkedThis(this.id);"></td>
+                    {%else%}
+                    <td ><input id="id_enabled" name="enabled"  type="checkbox" value="0"   onclick="checkedThis(this.id);"></td>
+                    {%endif%}
+                </tr>
+                <tr>
+                    <td class="col-sm-2">Interval:</td>
+                    <td>
+                        <select id="Interval" name="Interval" class="col-sm-1 form-control" style = "width:400px;"  onchange="changeSelect('Interval','Crontab');">
+                            <option value="-1"></option>
+                            {%for interval in intervals%}
+                            {%if task.interval_id and task.interval_id == interval.id %}
+                            <option value="{{interval.id}}" selected>every {{interval.every}} {{interval.period}}</option>
+                            {%else%}
+                            <option value="{{interval.id}}">every {{interval.every}} {{interval.period}}</option>
+                            {%endif%}
+                            {%endfor%}
+                        </select>
+                        <a class="col-sm-1" id="interval_add" href="{% url 'interval_detail'%}?action=add&task_id={{task_id}}"  data-toggle="modal" data-target="#myModal_{{interval.id}}">
+                            <i class="glyphicon glyphicon-plus"></i>
+                        </a>
+                        <!-- 模态框（Modal） -->
+                        <div class="modal fade" id="myModal_{{interval.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-hidden="true">×
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" >
+                                        <iframe src="{%url 'interval_detail'%}?task_id={{task_id}}" scrolling="auto" frameborder="0" style="width:880px;height:600px;"> </iframe>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">关闭
+                                        </button>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">Crontab:</td>
+                    <td>
+                        <select id="Crontab" name="Crontab" class="col-sm-1 form-control" style = "width:400px;" onclick="changeSelect('Crontab','Interval')">
+                            <option value="-1"></option>
+                            {%for crontab in crontabs%}
+                            {%if task.crontab_id and task.crontab_id == crontab.id %}
+                            <option value="{{crontab.id}}" selected>{{crontab.minute}} {{crontab.hour}} {{crontab.day_of_week}} {{crontab.day_of_month}} {{crontab.month_of_year}}</option>
+                            {%else%}
+                            <option value="{{crontab.id}}">{{crontab.minute}} {{crontab.hour}} {{crontab.day_of_week}} {{crontab.day_of_month}} {{crontab.month_of_year}}</option>
+                            {%endif%}
+                            {%endfor%}
+                        </select>
+                        <a class="col-sm-1" id="interval_add" href="{% url 'crontab_detail'%}?action=add&task_id={{task_id}}"  data-toggle="modal" data-target="#myModal_{{crontab.id}}">
+                            <i class="glyphicon glyphicon-plus"></i>
+                        </a>
+                        <!-- 模态框（Modal） -->
+                        <div class="modal fade" id="myModal_{{crontab.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-hidden="true">×
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" >
+                                        <iframe src="{%url 'crontab_detail'%}?task_id={{task_id}}" scrolling="auto" frameborder="0" style="width:880px;height:600px;"> </iframe>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">关闭
+                                        </button>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">List Arguments:</td>
+                    <td ><input name="list_arguments" class="form-control" type="text" value="{{task.args}}" style = "width:400px;" ></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">Keyword Arguments:</td>
+                    <td ><input id="keyword_arguments" class="form-control" name="keyword_arguments" type="text"  value="{{task.kwargs}}" style = "width:400px;"></td>
+                </tr>
+                {%endfor%}
+                {%else%}
+                <tr>
+                    <td class="col-sm-2">任务名称:</td>
+                    <td ><input name="task_name" class="form-control" type="text" value="" style = "width:400px;" required></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">任务模块:</td>
+                    <td >
+                        <select id="app_task_name" name="app_task_name" class="col-sm-1 form-control" style = "width:400px;"  required>
+                            {%for apptaskname in apptasknames%}
+                            <option value="{{apptaskname}}">{{apptaskname}}</option>
+                            {%endfor%}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">开启:</td>
+                    <td ><input id="id_enabled" name="enabled"  type="checkbox" value="0"   onclick="checkedThis(this.id);"></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">Interval:</td>
+                    <td >
+                        <select id="Interval" name="Interval" class=" col-sm-1 form-control" style = "width:400px;" onchange="changeSelect('Interval','Crontab')" >
+                            <option value="-1"></option>
+                            {%for interval in intervals%}
+                            <option value="{{interval.id}}">every {{interval.every}} {{interval.period}}</option>
+                            {%endfor%}
+                        </select>
+                        <a class="col-sm-1" id="interval_add" href="{% url 'interval_detail'%}?action=add&task_id={{task_id}}"  data-toggle="modal" data-target="#myModal_{{interval.id}}">
+                            <i class="glyphicon glyphicon-plus"></i>
+                        </a>
+                        <!-- 模态框（Modal） -->
+                        <div class="modal fade" id="myModal_{{interval.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-hidden="true">×
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" >
+                                        <iframe src="{%url 'interval_detail'%}?task_id={{task_id}}" scrolling="auto" frameborder="0" style="width:880px;height:600px;"> </iframe>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">关闭
+                                        </button>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">Crontab:</td>
+                    <td >
+                        <select id="Crontab" name="Crontab" class="col-sm-1 form-control" style = "width:400px;" onchange="changeSelect('Crontab','Interval')">
+                            <option value="-1"></option>
+                            {%for crontab in crontabs%}
+                            <option value="{{crontab.id}}">{{crontab.minute}} {{crontab.hour}} {{crontab.day_of_week}} {{crontab.day_of_month}} {{crontab.month_of_year}}</option>
+                            {%endfor%}
+                        </select>
+                        <a class="col-sm-1" id="interval_add" href="{% url 'crontab_detail'%}?action=add&task_id={{task_id}}"  data-toggle="modal" data-target="#myModal_{{crontab.id}}">
+                            <i class="glyphicon glyphicon-plus"></i>
+                        </a>
+                        <!-- 模态框（Modal） -->
+                        <div class="modal fade" id="myModal_{{crontab.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-hidden="true">×
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" >
+                                        <iframe src="{%url 'crontab_detail'%}?task_id={{task_id}}" scrolling="auto" frameborder="0" style="width:880px;height:600px;"> </iframe>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">关闭
+                                        </button>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">List Arguments:</td>
+                    <td ><input name="list_arguments" class="form-control" type="text" value="" style = "width:400px;" ></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">Keyword Arguments:</td>
+                    <td ><input id="keyword_arguments" name="keyword_arguments" class="form-control" type="text"  value="" style = "width:400px;"  ></td>
+                </tr>
+                {%endif%}
+            </table>
+            <hr>
+            <table class="table table-striped">
+
+
+                  <tr>
+                      <td></td>
+                      <td >
+                          <div class="col-sm-offset-8">
+                              <button class="btn"><a href="{%url 'task_manage'%}">取消</a></button>
+                              <button type="submit" class="btn btn-primary" onclick="return checkselected('Interval','Crontab')">保存</button>
+                          </div>
+                      </td>
+                  </tr>
+            </table>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增|修改</title>
+    {%load staticfiles%}
+    <link rel="stylesheet" href="{% static '/bootstrap-3.3.7/dist/css/bootstrap.min.css'%}">
+    <script src="{% static 'jquery-3.3.1.min.js'%}"></script>
+    <script src="{% static '/bootstrap-3.3.7/dist/js/bootstrap.min.js'%}"></script>
+</head>
+<body role="document">
+    <div class="row" style="padding-top:55px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <!--详情-->
+            <form class="form-horizontal" role="form" action="{%url 'crontab_save'%}?parentaction=edit&task_id={{task_id}}" method="post">
+                    {%csrf_token%}
+                    <h4>增加 crontab</h4>
+                    <table class="table table-striped ">
+                        <tr>
+                            <td class="col-sm-2">Minute:</td>
+                            <td ><input name="minute"  class="form-control" placeholder="*" type="text" value="*" style = "width:400px;" required></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sm-2">Hour:</td>
+                            <td ><input name="hour"  class="form-control" placeholder="*" type="text" value="*" style = "width:400px;" required></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sm-2">Day of week:</td>
+                            <td ><input name="day_of_week"  class="form-control" placeholder="*" type="text" value="*" style = "width:400px;" required></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sm-2">Day of month:</td>
+                            <td ><input name="day_of_month"  class="form-control" placeholder="*" type="text" value="*" style = "width:400px;" required></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sm-2">Month of year:</td>
+                            <td ><input name="month_of_year"  class="form-control" placeholder="*" type="text" value="*" style = "width:400px;" required></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td >
+                                  <div class="col-sm-offset-3">
+                                      <button class="btn"><a href="{%url 'task_detail'%}?action=edit&task_id={{task_id}}">取消</a></button>
+                                      <button type="submit" class="btn btn-primary">保存</button>
+                                  </div>
+                              </td>
+                        </tr>
+                    </table>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>

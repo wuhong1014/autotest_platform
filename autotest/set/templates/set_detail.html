@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增|修改</title>
+    {%load staticfiles%}
+    <link rel="stylesheet" href="{% static '/bootstrap-3.3.7/dist/css/bootstrap.min.css'%}">
+    <script src="{% static 'jquery-3.3.1.min.js'%}"></script>
+    <script src="{% static '/bootstrap-3.3.7/dist/js/bootstrap.min.js'%}"></script>
+</head>
+<body role="document">
+    <ol class="breadcrumb">
+      <li><a href="{%url 'welcome'%}">Home</a></li>
+      <li><a href="{%url 'set_manage'%}">系统设置管理</a></li>
+      <li class="active">系统配置管理 新增|修改</li>
+    </ol>
+    <!--详情-->
+    <form class="form-horizontal" role="form" action="{%url 'set_save'%}?set_id={{set_id}}" method="post">
+            {%csrf_token%}
+            <h4>系统配置 新增|编辑</h4>
+            <table class="table table-striped ">
+                {%if sets%}
+                {%for set in sets%}
+                <tr>
+                    <td class="col-sm-2">名称:</td>
+                    <td ><input name="setname"  class="form-control " type="text" value="{{set.setname}}" style = "width:400px;" required></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">设置值:</td>
+                    <td ><input name="setvalue" class="form-control" type="text" value="{{set.setvalue}}" style = "width:400px;" required></td>
+                </tr>
+                {%endfor%}
+                {%else%}
+                <tr>
+                    <td class="col-sm-2">名称:</td>
+                    <td ><input name="setname"  class="form-control " type="text" value="" style = "width:400px;" required></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">设置值:</td>
+                    <td ><input name="setvalue" class="form-control" type="text" value="" style = "width:400px;" required></td>
+                </tr>
+                {%endif%}
+                <tr>
+                    <td></td>
+                    <td >
+                          <div class="col-sm-offset-3">
+                              <button class="btn"><a href="{%url 'set_manage'%}">取消</a></button>
+                              <button type="submit" class="btn btn-primary">保存</button>
+                          </div>
+                      </td>
+                </tr>
+
+            </table>
+
+    </form>
+</body>
+</html>

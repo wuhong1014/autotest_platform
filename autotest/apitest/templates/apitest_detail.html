@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增|修改</title>
+    {%load staticfiles%}
+    <link rel="stylesheet" href="{% static '/bootstrap-3.3.7/dist/css/bootstrap.min.css'%}">
+    <script src="{% static 'jquery-3.3.1.min.js'%}"></script>
+    <script src="{% static '/bootstrap-3.3.7/dist/js/bootstrap.min.js'%}"></script>
+    <script>
+
+    function checkedThis(cid){
+       var boxArray = document.getElementById(cid);
+       if(boxArray.type=="checkbox"&& boxArray.checked){
+               boxArray.checked = true;
+               boxArray.value = 1;
+       }else{
+               boxArray.checked = false;
+               boxArray.value = 0;
+       }
+    }
+
+    function checkForm(ename)
+    {
+           var t1 = document.getElementsByName(ename);
+           for(i=0;i<t1.length;i++)
+           {
+               if(t1[i].type == "checkbox")
+               {
+                   if(!(t1[i].checked))
+                   {
+                       t1[i].checked = true;
+                   }
+               }
+           }
+           return true;
+    }
+    function delRow(obj,eid){
+        var table=document.getElementById("params_table");
+        var i=obj.parentNode.parentNode.rowIndex
+        var row=table.deleteRow(i);
+    }
+    function displayResult(eid){
+        var table=document.getElementById(eid);
+        var row=table.insertRow(-1);
+        var cell1=row.insertCell(0);
+        var cell2=row.insertCell(1);
+        var cell3=row.insertCell(2);
+        cell1.setAttribute('class','col-sm-3');
+        cell2.setAttribute('class','col-sm-3');
+        cell3.setAttribute('class','col-sm-6');
+        cell1.innerHTML='<input name="key" class="form-control" required>';
+        cell2.innerHTML='<input name="value" class="form-control" required>';
+        cell3.innerHTML="<a onclick='delRow(this)'><i class='glyphicon glyphicon-remove'></i></a>";
+    }
+    </script>
+</head>
+<body role="document">
+    <ol class="breadcrumb">
+      <li><a href="{%url 'welcome'%}">Home</a></li>
+      <li><a href="{%url 'module_manage'%}">流程接口用例管理</a></li>
+      <li class="active">流程接口用例 新增|修改</li>
+    </ol>
+    <!--详情-->
+    <form class="form-horizontal" role="form" action="{%url 'apitest_save'%}?apitest_id={{apitest_id}}" method="post" onsubmit="checkForm('apitestexec');" >
+        {%csrf_token%}
+
+            <h4>流程接口用例 新增|编辑</h4>
+            <table class="table table-striped ">
+                {%if apitests%}
+                {%for apitest in apitests%}
+                <tr>
+                    <td class="col-sm-2">流程用例编号:</td>
+                    <td ><input name="apitestid" class="form-control" type="text" value="{{apitest.apitestid}}" style = "width:400px;" required></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">模块:</td>
+                    <td >
+                        <select  name="apitestmodule" class="form-control" style = "width:400px;" required>
+                            {%for module in modules%}
+
+                            {%if module.modulename == apitest.apitestmodule.modulename%}
+                            <option selected="selected" value="{{module.id}}">{{module.modulename}}</option>
+                            {%else%}
+                            <option value="{{module.id}}">{{module.modulename}}</option>
+                            {%endif%}
+                            {%endfor%}
+
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">用例名称:</td>
+                    <td ><input name="apitestname" class="form-control" type="text" value="{{apitest.apitestname}}" style = "width:400px;" required></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">函数:</td>
+                    <td ><input name="apitestfunc" class="form-control" type="text" value="{{apitest.apitestfunc}}" style = "width:400px;" required></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">用例描述:</td>
+                    <td ><input name="apitestdesc" class="form-control" type="text" value="{{apitest.apitestdesc}}" style = "width:400px;"></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">测试负责人:</td>
+                    <td ><input name="apitester" class="form-control" type="text" value="{{apitest.apitester}}" style = "width:400px;" required></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">预期结果:</td>
+                    <td ><input name="apitestresult" class="form-control" type="text" value="{{ apitest.apitestresult}}" style = "width:400px;" required></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">是否执行:</td>
+                    {%if apitest.apitestexec%}
+                    <td ><input id="apitestexec" name="apitestexec" value="{{apitest.apitestexec}}" type="checkbox" checked="checked" onclick="checkedThis(this.id)"></td>
+                    {%else%}
+                    <td ><input id="apitestexec" name="apitestexec" value="{{apitest.apitestexec}}" type="checkbox" onclick="checkedThis(this.id)"></td>
+                    {%endif%}
+                </tr>
+                {%endfor%}
+                {%else%}
+                <tr>
+                    <td class="col-sm-2">流程用例编号:</td>
+                    <td ><input name="apitestid" class="form-control" type="text" value="" style = "width:400px;" required></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">模块:</td>
+                    <td >
+                        <select name="apitestmodule" class="form-control" style = "width:400px;" required>
+                            <option></option>
+                            {%for module in modules%}
+                            <option value="{{module.id}}">{{module.modulename}}</option>
+                            {%endfor%}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">用例名称:</td>
+                    <td ><input name="apitestname" class="form-control" type="text" value="" style = "width:400px;" required></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">函数:</td>
+                    <td ><input name="apitestfunc" class="form-control" type="text" value="" style = "width:400px;" required></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">用例描述:</td>
+                    <td ><input name="apitestdesc" class="form-control" type="text" value="" style = "width:400px;"></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">测试负责人:</td>
+                    <td ><input name="apitester" class="form-control" type="text" value="" style = "width:400px;" required></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">预期结果:</td>
+                    <td ><input name="apitestresult" class="form-control" type="text" value="" style = "width:400px;" required></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2">是否执行:</td>
+                    <td ><input id="apitestexec" name="apitestexec" value="0" type="checkbox" onclick="checkedThis(this.id)"></td>
+                </tr>
+                {%endif%}
+            </table>
+        <hr>
+            <table class="table table-striped" id='params_table'>
+                <caption>流程接口测试用例参数</caption>
+                <thead>
+                  <tr>
+                     <th class="col-sm-3">key</th>
+                     <th class="col-sm-3">value</th>
+                      <th class="col-sm-6">删除</th>
+                  </tr>
+               </thead>
+               <tbody>
+               {%if not params%}
+                  <tr >
+                     <td class="col-sm-3"><input name="key" type="text" class="form-control col-sm-2"  required></td>
+                     <td class="col-sm-3"><input name="value" type="text" class="form-control col-sm-2" required></td>
+                      <td class="col-sm-6"><a onclick='delRow(this)'><i class='glyphicon glyphicon-remove'></i></a></td>
+                  </tr>
+               {%else%}
+                    {% for key,value in params.items%}
+                    <tr>
+                        <td class="col-sm-3"><input name="key" type="text" class="form-control " value="{{key}}" required></td>
+                        <td class="col-sm-3"> <input name="value" type="text" class="form-control" value="{{value}}" required></td>
+                        <td class="col-sm-6"><a onclick='delRow(this)'><i class='glyphicon glyphicon-remove'></i></a></td>
+                      </tr>
+                    {%endfor%}
+               {%endif%}
+               </tbody>
+
+            </table>
+            <table class="table table-striped">
+
+                  <tr>
+                      <td><a  onclick="displayResult('params_table');"> 添加另一组 参数</a></td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td >
+                          <div class="col-sm-offset-8">
+                              <button class="btn"><a href="{%url 'apitest_manage'%}">取消</a></button>
+                              <button type="submit" class="btn btn-primary" >保存</button>
+                          </div>
+                      </td>
+                  </tr>
+            </table>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试用例管理</title>
+    {%load staticfiles%}
+    <link rel="stylesheet" href="{% static '/bootstrap-3.3.7/dist/css/bootstrap.min.css'%}">
+    <script src="{% static 'jquery-3.3.1.min.js'%}"></script>
+    <script src="{% static '/bootstrap-3.3.7/dist/js/bootstrap.min.js'%}"></script>
+</head>
+<body role="document">
+    <ol class="breadcrumb">
+      <li><a href="{%url 'welcome'%}">Home</a></li>
+      <li class="active">测试用例管理</li>
+      <li class="active">流程接口用例管理</li>
+    </ol>
+    <!--搜索栏-->
+    <div class="page-header" >
+        <nav class="navbar">
+          <form class="navbar-form navbar-left" role="search" method="get" action="{%url 'apitest_manage'%}">
+            <input class="form-control mr-sm-2" type="search" placeholder="用例名称" aria-label="Search" name="apitestname" value="{{search_apitestname}}">
+            <button class="btn btn-default my-2 my-sm-0" type="submit">搜索</button>
+          </form>
+            <!--新增-->
+            <nav class="navbar" style="float:right;width:15%">
+                <button class="btn btn-default my-2 my-sm-0">
+                    <a class="" id="add_id_apitest" href="{%url 'apitest_detail'%}?action=add" >
+                        <i class="glyphicon glyphicon-plus"></i>
+                        增加
+                    </a>
+                </button>
+            </nav>
+        </nav>
+    </div>
+
+    <!--用例列表-->
+    <div class="row" style="padding-top:10px;width:100%;">
+        <div class="col-md-11">
+            <table class="table table-striped table-hover" style="table-layout:fixed">
+                <style>
+                    td{
+                        white-space:nowrap;
+                        overflow:hidden;
+                        text-overflow:ellipsis;
+                    }
+                </style>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>用例编号</th>
+                        <th>模块</th>
+                        <th>用例名称</th>
+                        <th>用例描述</th>
+                        <th>参数=值</th>
+                        <th>函数</th>
+                        <th>测试负责人</th>
+                        <th>预期结果</th>
+                        <th>是否执行</th>
+                        <th>编辑</th>
+                        <th>删除</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for apitest in apitests%}
+                    <tr>
+                        <td>{{apitest.id}}</td>
+                        <td>{{apitest.apitestid}}</td>
+                        <td >{{apitest.apitestmodule.modulename}}</td>
+                        <td data-toggle="tooltip" data-placement="right" title="{{apitest.apitestname}}">{{apitest.apitestname}}</td>
+                        <td data-toggle="tooltip" data-placement="right" title="{{apitest.apitestdesc}}">{{apitest.apitestdesc}}</td>
+                        <td data-toggle="tooltip" data-placement="right" title="{{apitest.apitestparamsvalue}}">{{apitest.apitestparamsvalue}}</td>
+                        <td>{{apitest.apitestfunc}}</td>
+                        <td>{{apitest.apitester}}</td>
+                        <td>{{apitest.apitestresult}}</td>
+                        <td>{{apitest.apitestexec}}</td>
+                        <td><a href="{%url 'apitest_detail'%}?action=edit&apitest_id={{apitest.id}}"><i class="glyphicon glyphicon-pencil"></i></a></td>
+                        <td><a href="{%url 'apitest_del'%}?apitest_id={{apitest.id}}"><i class="glyphicon glyphicon-remove"></i></a></td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+          {%if apitests.has_previous%}
+              <li class="page-item " ><a class="page-link" href="/apitest_manage/?page=1&apitestname={{search_apitestname}}">首页</a></li>
+              <li class="page-item "><a class="page-link" href="/apitest_manage/?page={{apitests.previous_page_number}}&apitestname={{search_apitestname}}" >上一页</a></li>
+          {% else %}
+              <li class="page-item disabled" ><a class="page-link" href="#">首页</a></li>
+              <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">上一页</a></li>
+          {% endif %}
+          {% for num in apitests.paginator.page_range%}
+            {% if num == currentPage %}
+                <li class="page-item active"><a class="page-link" href="/apitest_manage/?page={{num}}&apitestname={{search_apitestname}}">{{num}}</a></li>
+            {% else %}
+                <li class="page-item"><a class="page-link" href="/apitest_manage/?page={{num}}&apitestname={{search_apitestname}}">{{num}}</a></li>
+            {% endif %}
+          {% endfor %}
+          {%if apitests.has_next%}
+              <li class="page-item"><a class="page-link" href="/apitest_manage/?page={{apitests.next_page_number}}&apitestname={{search_apitestname}}">下一页</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="/apitest_manage/?page={{apitests.paginator.num_pages}}&apitestname={{search_apitestname}}">尾页</a></li>
+          {% else %}
+              <li class="page-item disabled"><a class="page-link" href="#">下一页</a></li>
+              <li class="page-item disabled"><a class="page-link" href="#" >尾页</a>
+              </li>
+          {% endif %}
+          <li class="page-item disabled"><a class="page-link" href="#">共{{apitests.paginator.count}}条</a></li>
+      </ul>
+    </nav>
+</body>
+</html>

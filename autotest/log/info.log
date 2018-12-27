@@ -1,0 +1,425 @@
+[2018-12-21 10:35:00,862][MainThread:923456][task_id:celery.redirected][log.py:282][WARNING][D:\autotest\venv\lib\site-packages\celery\apps\worker.py:162: CDeprecationWarning: 
+Starting from version 3.2 Celery will refuse to accept pickle by default.
+
+The pickle serializer is a security concern as it may give attackers
+the ability to execute any command.  It's important to secure
+your broker from unauthorized access when using pickle, so we think
+that enabling pickle should require a deliberate action and not be
+the default choice.
+
+If you depend on pickle then you should set a setting to disable this
+warning and to be sure that everything will continue working
+when you upgrade to Celery 3.2::
+
+    CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml']
+
+You must only enable the serializers that you will actually use.
+
+
+  warnings.warn(CDeprecationWarning(W_PICKLE_DEPRECATED))]
+[2018-12-21 10:35:01,047][MainThread:923456][task_id:celery.worker.consumer][consumer.py:480][INFO][Connected to redis://127.0.0.1:6379/0]
+[2018-12-21 10:35:01,104][MainThread:923456][task_id:celery.worker.consumer][consumer.py:568][INFO][mingle: searching for neighbors]
+[2018-12-21 10:35:02,153][MainThread:923456][task_id:celery.worker.consumer][consumer.py:586][INFO][mingle: all alone]
+[2018-12-21 10:35:02,231][MainThread:923456][task_id:celery.redirected][log.py:282][WARNING][D:\autotest\venv\lib\site-packages\djcelery\loaders.py:133: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warn('Using settings.DEBUG leads to a memory leak, never ']
+[2018-12-21 10:35:02,232][MainThread:923456][task_id:celery.redirected][log.py:282][WARNING][D:\autotest\venv\lib\site-packages\celery\fixups\django.py:265: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warnings.warn('Using settings.DEBUG leads to a memory leak, never ']
+[2018-12-21 10:35:02,232][MainThread:923456][task_id:celery.redirected][log.py:282][WARNING][celery@wuhong-PC ready.]
+[2018-12-21 10:35:02,236][MainThread:923456][task_id:celery.worker.strategy][strategy.py:55][INFO][Received task: apitest.tasks.demo_test[b5945458-b0da-41f1-bca5-c85c7a39d734]]
+[2018-12-21 10:35:02,257][MainThread:923444][task_id:apitest.tasks][tasks.py:14][INFO][demo_test start........]
+[2018-12-21 10:35:02,260][MainThread:923444][task_id:script][flowdemo.py:40][INFO][用例执行开始，用例编号：testflow001，用例名称：测试名称，用例描述：testdesc，用例参数：{"one": "onevalue", "two": "twovalue"}]
+[2018-12-21 10:35:02,263][MainThread:923444][task_id:celery.redirected][log.py:282][WARNING][F]
+[2018-12-21 10:35:02,263][MainThread:923444][task_id:celery.redirected][log.py:282][WARNING][test_test_testflow001_ok (script.case.modulename.flowapi.flowdemo.FlowDemo)]
+[2018-12-21 10:35:02,263][MainThread:923444][task_id:celery.redirected][log.py:282][WARNING][<celery.utils.log.LoggingProxy object at 0x0000000004BF4F60>]
+[2018-12-21 10:35:02,263][MainThread:923444][task_id:celery.redirected][log.py:282][WARNING][Time Elapsed: 0:00:00.003000]
+[2018-12-21 10:35:05,265][MainThread:923444][task_id:apitest.tasks][tasks.py:25][INFO][保存报告地址。。。]
+[2018-12-21 10:35:05,336][MainThread:923444][task_id:apitest.tasks][tasks.py:38][INFO][报告地址成功。。。]
+[2018-12-21 10:35:07,052][MainThread:923444][task_id:script][sendEmail.py:33][INFO][邮件发送成功]
+[2018-12-21 10:35:07,053][MainThread:923444][task_id:apitest.tasks][tasks.py:46][INFO][demo_test end.........]
+[2018-12-21 10:35:07,124][Thread-5:922716][task_id:celery.worker.job][job.py:402][INFO][Task apitest.tasks.demo_test[b5945458-b0da-41f1-bca5-c85c7a39d734] succeeded in 4.867000000085682s: None]
+[2018-12-21 10:39:55,078][MainThread:918344][task_id:celery.beat][beat.py:468][INFO][beat: Starting...]
+[2018-12-21 10:39:55,079][MainThread:918344][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 10:39:55,258][MainThread:918344][task_id:celery.beat][beat.py:202][INFO][Scheduler: Sending due task test001 (apitest.tasks.demo_test)]
+[2018-12-21 10:39:55,265][MainThread:918344][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (1)...]
+[2018-12-21 10:39:59,083][MainThread:908820][task_id:celery.redirected][log.py:282][WARNING][D:\autotest\venv\lib\site-packages\celery\apps\worker.py:162: CDeprecationWarning: 
+Starting from version 3.2 Celery will refuse to accept pickle by default.
+
+The pickle serializer is a security concern as it may give attackers
+the ability to execute any command.  It's important to secure
+your broker from unauthorized access when using pickle, so we think
+that enabling pickle should require a deliberate action and not be
+the default choice.
+
+If you depend on pickle then you should set a setting to disable this
+warning and to be sure that everything will continue working
+when you upgrade to Celery 3.2::
+
+    CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml']
+
+You must only enable the serializers that you will actually use.
+
+
+  warnings.warn(CDeprecationWarning(W_PICKLE_DEPRECATED))]
+[2018-12-21 10:39:59,318][MainThread:908820][task_id:celery.worker.consumer][consumer.py:480][INFO][Connected to redis://127.0.0.1:6379/0]
+[2018-12-21 10:39:59,360][MainThread:908820][task_id:celery.worker.consumer][consumer.py:568][INFO][mingle: searching for neighbors]
+[2018-12-21 10:40:00,381][MainThread:908820][task_id:celery.worker.consumer][consumer.py:586][INFO][mingle: all alone]
+[2018-12-21 10:40:00,591][MainThread:908820][task_id:celery.redirected][log.py:282][WARNING][D:\autotest\venv\lib\site-packages\djcelery\loaders.py:133: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warn('Using settings.DEBUG leads to a memory leak, never ']
+[2018-12-21 10:40:00,592][MainThread:908820][task_id:celery.redirected][log.py:282][WARNING][D:\autotest\venv\lib\site-packages\celery\fixups\django.py:265: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warnings.warn('Using settings.DEBUG leads to a memory leak, never ']
+[2018-12-21 10:40:00,592][MainThread:908820][task_id:celery.redirected][log.py:282][WARNING][celery@wuhong-PC ready.]
+[2018-12-21 10:40:00,595][MainThread:908820][task_id:celery.worker.strategy][strategy.py:55][INFO][Received task: apitest.tasks.demo_test[e9095803-b2ff-4deb-ad42-8bbd18a80a68]]
+[2018-12-21 10:40:00,605][MainThread:907432][task_id:apitest.tasks][tasks.py:14][INFO][demo_test start........]
+[2018-12-21 10:40:00,611][MainThread:907432][task_id:script][flowdemo.py:40][INFO][用例执行开始，用例编号：testflow001，用例名称：测试名称，用例描述：testdesc，用例参数：{"one": "onevalue", "two": "twovalue"}]
+[2018-12-21 10:40:00,644][MainThread:907432][task_id:celery.redirected][log.py:282][WARNING][F]
+[2018-12-21 10:40:00,645][MainThread:907432][task_id:celery.redirected][log.py:282][WARNING][test_test_testflow001_ok (script.case.modulename.flowapi.flowdemo.FlowDemo)]
+[2018-12-21 10:40:00,646][MainThread:907432][task_id:celery.redirected][log.py:282][WARNING][<celery.utils.log.LoggingProxy object at 0x0000000004C94F60>]
+[2018-12-21 10:40:00,646][MainThread:907432][task_id:celery.redirected][log.py:282][WARNING][Time Elapsed: 0:00:00.034002]
+[2018-12-21 10:40:03,647][MainThread:907432][task_id:apitest.tasks][tasks.py:25][INFO][保存报告地址。。。]
+[2018-12-21 10:40:03,824][MainThread:907432][task_id:apitest.tasks][tasks.py:38][INFO][报告地址成功。。。]
+[2018-12-21 10:40:06,097][MainThread:907432][task_id:script][sendEmail.py:33][INFO][邮件发送成功]
+[2018-12-21 10:40:06,098][MainThread:907432][task_id:apitest.tasks][tasks.py:46][INFO][demo_test end.........]
+[2018-12-21 10:40:06,230][Thread-5:923212][task_id:celery.worker.job][job.py:402][INFO][Task apitest.tasks.demo_test[e9095803-b2ff-4deb-ad42-8bbd18a80a68] succeeded in 5.6319999997504056s: None]
+[2018-12-21 10:41:55,261][MainThread:918344][task_id:celery.beat][beat.py:202][INFO][Scheduler: Sending due task test001 (apitest.tasks.demo_test)]
+[2018-12-21 10:41:55,265][MainThread:908820][task_id:celery.worker.strategy][strategy.py:55][INFO][Received task: apitest.tasks.demo_test[41dde113-eb07-497f-8a1d-98ea021afa48]]
+[2018-12-21 10:41:55,267][MainThread:915388][task_id:apitest.tasks][tasks.py:14][INFO][demo_test start........]
+[2018-12-21 10:41:55,270][MainThread:915388][task_id:script][flowdemo.py:40][INFO][用例执行开始，用例编号：testflow001，用例名称：测试名称，用例描述：testdesc，用例参数：{"one": "onevalue", "two": "twovalue"}]
+[2018-12-21 10:41:55,272][MainThread:915388][task_id:celery.redirected][log.py:282][WARNING][F]
+[2018-12-21 10:41:55,273][MainThread:915388][task_id:celery.redirected][log.py:282][WARNING][test_test_testflow001_ok (script.case.modulename.flowapi.flowdemo.FlowDemo)]
+[2018-12-21 10:41:55,273][MainThread:915388][task_id:celery.redirected][log.py:282][WARNING][<celery.utils.log.LoggingProxy object at 0x0000000004E84F60>]
+[2018-12-21 10:41:55,273][MainThread:915388][task_id:celery.redirected][log.py:282][WARNING][Time Elapsed: 0:00:00.004001]
+[2018-12-21 10:41:58,275][MainThread:915388][task_id:apitest.tasks][tasks.py:25][INFO][保存报告地址。。。]
+[2018-12-21 10:41:58,355][MainThread:915388][task_id:apitest.tasks][tasks.py:38][INFO][报告地址成功。。。]
+[2018-12-21 10:41:59,653][MainThread:915388][task_id:script][sendEmail.py:33][INFO][邮件发送成功]
+[2018-12-21 10:41:59,660][MainThread:915388][task_id:apitest.tasks][tasks.py:46][INFO][demo_test end.........]
+[2018-12-21 10:41:59,833][Thread-5:923212][task_id:celery.worker.job][job.py:402][INFO][Task apitest.tasks.demo_test[41dde113-eb07-497f-8a1d-98ea021afa48] succeeded in 4.570999999996275s: None]
+[2018-12-21 10:42:30,485][MainThread:900904][task_id:celery.redirected][log.py:282][WARNING][D:\autotest\venv\lib\site-packages\celery\apps\worker.py:162: CDeprecationWarning: 
+Starting from version 3.2 Celery will refuse to accept pickle by default.
+
+The pickle serializer is a security concern as it may give attackers
+the ability to execute any command.  It's important to secure
+your broker from unauthorized access when using pickle, so we think
+that enabling pickle should require a deliberate action and not be
+the default choice.
+
+If you depend on pickle then you should set a setting to disable this
+warning and to be sure that everything will continue working
+when you upgrade to Celery 3.2::
+
+    CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml']
+
+You must only enable the serializers that you will actually use.
+
+
+  warnings.warn(CDeprecationWarning(W_PICKLE_DEPRECATED))]
+[2018-12-21 10:42:30,598][MainThread:900904][task_id:celery.worker.consumer][consumer.py:480][INFO][Connected to redis://127.0.0.1:6379/0]
+[2018-12-21 10:42:30,631][MainThread:900904][task_id:celery.worker.consumer][consumer.py:568][INFO][mingle: searching for neighbors]
+[2018-12-21 10:42:31,689][MainThread:900904][task_id:celery.worker.consumer][consumer.py:586][INFO][mingle: all alone]
+[2018-12-21 10:42:31,845][MainThread:900904][task_id:celery.redirected][log.py:282][WARNING][D:\autotest\venv\lib\site-packages\djcelery\loaders.py:133: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warn('Using settings.DEBUG leads to a memory leak, never ']
+[2018-12-21 10:42:31,846][MainThread:900904][task_id:celery.redirected][log.py:282][WARNING][D:\autotest\venv\lib\site-packages\celery\fixups\django.py:265: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warnings.warn('Using settings.DEBUG leads to a memory leak, never ']
+[2018-12-21 10:42:31,847][MainThread:900904][task_id:celery.redirected][log.py:282][WARNING][celery@wuhong-PC ready.]
+[2018-12-21 10:43:00,151][MainThread:918344][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (1)...]
+[2018-12-21 10:43:55,262][MainThread:918344][task_id:celery.beat][beat.py:202][INFO][Scheduler: Sending due task test001 (apitest.tasks.demo_test)]
+[2018-12-21 10:43:55,265][MainThread:900904][task_id:celery.worker.strategy][strategy.py:55][INFO][Received task: apitest.tasks.demo_test[ab87e6e0-53ed-4ae2-a9ef-77db5f0b6bc3]]
+[2018-12-21 10:43:55,267][MainThread:923576][task_id:apitest.tasks][tasks.py:14][INFO][demo_test start........]
+[2018-12-21 10:43:55,271][MainThread:923576][task_id:script][flowdemo.py:40][INFO][用例执行开始，用例编号：testflow001，用例名称：测试名称，用例描述：testdesc，用例参数：{"one": "onevalue", "two": "twovalue"}]
+[2018-12-21 10:43:55,272][MainThread:923576][task_id:celery.redirected][log.py:282][WARNING][ok]
+[2018-12-21 10:43:55,272][MainThread:923576][task_id:celery.redirected][log.py:282][WARNING][test_test_testflow001_no (script.case.modulename.flowapi.flowdemo.FlowDemo)]
+[2018-12-21 10:43:55,272][MainThread:923576][task_id:celery.redirected][log.py:282][WARNING][<celery.utils.log.LoggingProxy object at 0x0000000004C74FD0>]
+[2018-12-21 10:43:55,272][MainThread:923576][task_id:celery.redirected][log.py:282][WARNING][Time Elapsed: 0:00:00.001000]
+[2018-12-21 10:43:58,273][MainThread:923576][task_id:apitest.tasks][tasks.py:25][INFO][保存报告地址。。。]
+[2018-12-21 10:43:58,343][MainThread:923576][task_id:apitest.tasks][tasks.py:38][INFO][报告地址成功。。。]
+[2018-12-21 10:44:00,017][MainThread:923576][task_id:script][sendEmail.py:33][INFO][邮件发送成功]
+[2018-12-21 10:44:00,018][MainThread:923576][task_id:apitest.tasks][tasks.py:46][INFO][demo_test end.........]
+[2018-12-21 10:44:00,123][Thread-5:922988][task_id:celery.worker.job][job.py:402][INFO][Task apitest.tasks.demo_test[ab87e6e0-53ed-4ae2-a9ef-77db5f0b6bc3] succeeded in 4.8519999999552965s: None]
+[2018-12-21 10:45:55,263][MainThread:918344][task_id:celery.beat][beat.py:202][INFO][Scheduler: Sending due task test001 (apitest.tasks.demo_test)]
+[2018-12-21 10:45:55,268][MainThread:900904][task_id:celery.worker.strategy][strategy.py:55][INFO][Received task: apitest.tasks.demo_test[fa1ae93b-c1b8-42a6-846d-81132b8a5f02]]
+[2018-12-21 10:45:55,270][MainThread:923320][task_id:apitest.tasks][tasks.py:14][INFO][demo_test start........]
+[2018-12-21 10:45:55,272][MainThread:923320][task_id:script][flowdemo.py:40][INFO][用例执行开始，用例编号：testflow001，用例名称：测试名称，用例描述：testdesc，用例参数：{"one": "onevalue", "two": "twovalue"}]
+[2018-12-21 10:45:55,273][MainThread:923320][task_id:celery.redirected][log.py:282][WARNING][ok]
+[2018-12-21 10:45:55,273][MainThread:923320][task_id:celery.redirected][log.py:282][WARNING][test_test_testflow001_no (script.case.modulename.flowapi.flowdemo.FlowDemo)]
+[2018-12-21 10:45:55,273][MainThread:923320][task_id:celery.redirected][log.py:282][WARNING][<celery.utils.log.LoggingProxy object at 0x0000000004E84FD0>]
+[2018-12-21 10:45:55,274][MainThread:923320][task_id:celery.redirected][log.py:282][WARNING][Time Elapsed: 0:00:00.001000]
+[2018-12-21 10:45:58,274][MainThread:923320][task_id:apitest.tasks][tasks.py:25][INFO][保存报告地址。。。]
+[2018-12-21 10:45:58,352][MainThread:923320][task_id:apitest.tasks][tasks.py:38][INFO][报告地址成功。。。]
+[2018-12-21 10:45:59,985][MainThread:923320][task_id:script][sendEmail.py:33][INFO][邮件发送成功]
+[2018-12-21 10:45:59,985][MainThread:923320][task_id:apitest.tasks][tasks.py:46][INFO][demo_test end.........]
+[2018-12-21 10:46:00,135][Thread-5:922988][task_id:celery.worker.job][job.py:402][INFO][Task apitest.tasks.demo_test[fa1ae93b-c1b8-42a6-846d-81132b8a5f02] succeeded in 4.867999999783933s: None]
+[2018-12-21 10:46:00,257][MainThread:918344][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (1)...]
+[2018-12-21 10:46:13,978][MainThread:918344][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 10:46:13,980][MainThread:918344][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 10:46:13,981][MainThread:918344][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 10:46:13,982][MainThread:918344][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 10:46:16,383][MainThread:923132][task_id:celery.beat][beat.py:468][INFO][beat: Starting...]
+[2018-12-21 10:46:16,383][MainThread:923132][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 10:46:21,740][MainThread:923132][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 10:47:55,266][MainThread:923132][task_id:celery.beat][beat.py:202][INFO][Scheduler: Sending due task test001 (apitest.tasks.demo_test)]
+[2018-12-21 10:47:55,273][MainThread:900904][task_id:celery.worker.strategy][strategy.py:55][INFO][Received task: apitest.tasks.demo_test[6915ee74-621a-4999-b07b-06e06a314f4c]]
+[2018-12-21 10:47:55,274][MainThread:920992][task_id:apitest.tasks][tasks.py:14][INFO][demo_test start........]
+[2018-12-21 10:47:55,277][MainThread:920992][task_id:script][flowdemo.py:40][INFO][用例执行开始，用例编号：testflow001，用例名称：测试名称，用例描述：testdesc，用例参数：{"one": "onevalue", "two": "twovalue"}]
+[2018-12-21 10:47:55,278][MainThread:920992][task_id:celery.redirected][log.py:282][WARNING][ok]
+[2018-12-21 10:47:55,278][MainThread:920992][task_id:celery.redirected][log.py:282][WARNING][test_test_testflow001_no (script.case.modulename.flowapi.flowdemo.FlowDemo)]
+[2018-12-21 10:47:55,278][MainThread:920992][task_id:celery.redirected][log.py:282][WARNING][<celery.utils.log.LoggingProxy object at 0x0000000004EA6F98>]
+[2018-12-21 10:47:55,279][MainThread:920992][task_id:celery.redirected][log.py:282][WARNING][Time Elapsed: 0:00:00.001000]
+[2018-12-21 10:47:58,280][MainThread:920992][task_id:apitest.tasks][tasks.py:25][INFO][保存报告地址。。。]
+[2018-12-21 10:47:58,370][MainThread:920992][task_id:apitest.tasks][tasks.py:38][INFO][报告地址成功。。。]
+[2018-12-21 10:47:59,858][MainThread:920992][task_id:script][sendEmail.py:33][INFO][邮件发送成功]
+[2018-12-21 10:47:59,859][MainThread:920992][task_id:apitest.tasks][tasks.py:46][INFO][demo_test end.........]
+[2018-12-21 10:47:59,978][Thread-5:922988][task_id:celery.worker.job][job.py:402][INFO][Task apitest.tasks.demo_test[6915ee74-621a-4999-b07b-06e06a314f4c] succeeded in 4.695999999996275s: None]
+[2018-12-21 10:48:25,127][MainThread:920920][task_id:celery.redirected][log.py:282][WARNING][D:\autotest\venv\lib\site-packages\celery\apps\worker.py:162: CDeprecationWarning: 
+Starting from version 3.2 Celery will refuse to accept pickle by default.
+
+The pickle serializer is a security concern as it may give attackers
+the ability to execute any command.  It's important to secure
+your broker from unauthorized access when using pickle, so we think
+that enabling pickle should require a deliberate action and not be
+the default choice.
+
+If you depend on pickle then you should set a setting to disable this
+warning and to be sure that everything will continue working
+when you upgrade to Celery 3.2::
+
+    CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml']
+
+You must only enable the serializers that you will actually use.
+
+
+  warnings.warn(CDeprecationWarning(W_PICKLE_DEPRECATED))]
+[2018-12-21 10:48:25,487][MainThread:920920][task_id:celery.worker.consumer][consumer.py:480][INFO][Connected to redis://127.0.0.1:6379/0]
+[2018-12-21 10:48:25,507][MainThread:920920][task_id:celery.worker.consumer][consumer.py:568][INFO][mingle: searching for neighbors]
+[2018-12-21 10:48:26,579][MainThread:920920][task_id:celery.worker.consumer][consumer.py:586][INFO][mingle: all alone]
+[2018-12-21 10:48:26,616][MainThread:920920][task_id:celery.redirected][log.py:282][WARNING][D:\autotest\venv\lib\site-packages\djcelery\loaders.py:133: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warn('Using settings.DEBUG leads to a memory leak, never ']
+[2018-12-21 10:48:26,617][MainThread:920920][task_id:celery.redirected][log.py:282][WARNING][D:\autotest\venv\lib\site-packages\celery\fixups\django.py:265: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warnings.warn('Using settings.DEBUG leads to a memory leak, never ']
+[2018-12-21 10:48:26,617][MainThread:920920][task_id:celery.redirected][log.py:282][WARNING][celery@wuhong-PC ready.]
+[2018-12-21 10:49:25,118][MainThread:923132][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (1)...]
+[2018-12-21 10:49:55,267][MainThread:923132][task_id:celery.beat][beat.py:202][INFO][Scheduler: Sending due task test001 (apitest.tasks.demo_test)]
+[2018-12-21 10:49:55,270][MainThread:920920][task_id:celery.worker.strategy][strategy.py:55][INFO][Received task: apitest.tasks.demo_test[8da57d94-9375-48eb-a2cc-e928c91f45d0]]
+[2018-12-21 10:49:55,272][MainThread:923628][task_id:apitest.tasks][tasks.py:14][INFO][demo_test start........]
+[2018-12-21 10:49:55,274][MainThread:923628][task_id:script][flowdemo.py:40][INFO][用例执行开始，用例编号：testflow001，用例名称：测试名称，用例描述：testdesc，用例参数：{"one": "onevalue", "two": "twovalue"}]
+[2018-12-21 10:49:55,275][MainThread:923628][task_id:celery.redirected][log.py:282][WARNING][ok]
+[2018-12-21 10:49:55,275][MainThread:923628][task_id:celery.redirected][log.py:282][WARNING][test_test_testflow001_no (script.case.modulename.flowapi.flowdemo.FlowDemo)]
+[2018-12-21 10:49:55,275][MainThread:923628][task_id:celery.redirected][log.py:282][WARNING][<celery.utils.log.LoggingProxy object at 0x0000000004BF4FD0>]
+[2018-12-21 10:49:55,276][MainThread:923628][task_id:celery.redirected][log.py:282][WARNING][Time Elapsed: 0:00:00.001000]
+[2018-12-21 10:49:58,276][MainThread:923628][task_id:apitest.tasks][tasks.py:25][INFO][保存报告地址。。。]
+[2018-12-21 10:49:58,348][MainThread:923628][task_id:apitest.tasks][tasks.py:38][INFO][报告地址成功。。。]
+[2018-12-21 10:49:59,570][MainThread:923628][task_id:script][sendEmail.py:33][INFO][邮件发送成功]
+[2018-12-21 10:49:59,572][MainThread:923628][task_id:apitest.tasks][tasks.py:46][INFO][demo_test end.........]
+[2018-12-21 10:49:59,705][Thread-5:921608][task_id:celery.worker.job][job.py:402][INFO][Task apitest.tasks.demo_test[8da57d94-9375-48eb-a2cc-e928c91f45d0] succeeded in 4.429999999701977s: None]
+[2018-12-21 10:50:29,059][MainThread:901468][task_id:celery.redirected][log.py:282][WARNING][D:\autotest\venv\lib\site-packages\celery\apps\worker.py:162: CDeprecationWarning: 
+Starting from version 3.2 Celery will refuse to accept pickle by default.
+
+The pickle serializer is a security concern as it may give attackers
+the ability to execute any command.  It's important to secure
+your broker from unauthorized access when using pickle, so we think
+that enabling pickle should require a deliberate action and not be
+the default choice.
+
+If you depend on pickle then you should set a setting to disable this
+warning and to be sure that everything will continue working
+when you upgrade to Celery 3.2::
+
+    CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml']
+
+You must only enable the serializers that you will actually use.
+
+
+  warnings.warn(CDeprecationWarning(W_PICKLE_DEPRECATED))]
+[2018-12-21 10:50:29,199][MainThread:901468][task_id:celery.worker.consumer][consumer.py:480][INFO][Connected to redis://127.0.0.1:6379/0]
+[2018-12-21 10:50:29,333][MainThread:901468][task_id:celery.worker.consumer][consumer.py:568][INFO][mingle: searching for neighbors]
+[2018-12-21 10:50:30,436][MainThread:901468][task_id:celery.worker.consumer][consumer.py:586][INFO][mingle: all alone]
+[2018-12-21 10:50:30,447][MainThread:901468][task_id:celery.redirected][log.py:282][WARNING][D:\autotest\venv\lib\site-packages\djcelery\loaders.py:133: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warn('Using settings.DEBUG leads to a memory leak, never ']
+[2018-12-21 10:50:30,448][MainThread:901468][task_id:celery.redirected][log.py:282][WARNING][D:\autotest\venv\lib\site-packages\celery\fixups\django.py:265: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warnings.warn('Using settings.DEBUG leads to a memory leak, never ']
+[2018-12-21 10:50:30,450][MainThread:901468][task_id:celery.redirected][log.py:282][WARNING][celery@wuhong-PC ready.]
+[2018-12-21 10:51:55,268][MainThread:923132][task_id:celery.beat][beat.py:202][INFO][Scheduler: Sending due task test001 (apitest.tasks.demo_test)]
+[2018-12-21 10:51:55,272][MainThread:901468][task_id:celery.worker.strategy][strategy.py:55][INFO][Received task: apitest.tasks.demo_test[f12542b7-bd7a-46e6-a5aa-3da6355202b2]]
+[2018-12-21 10:51:55,274][MainThread:923616][task_id:apitest.tasks][tasks.py:14][INFO][demo_test start........]
+[2018-12-21 10:51:55,277][MainThread:923616][task_id:script][flowdemo.py:40][INFO][用例执行开始，用例编号：testflow001，用例名称：测试名称，用例描述：testdesc，用例参数：{"one": "onevalue", "two": "twovalue"}]
+[2018-12-21 10:51:55,277][MainThread:923616][task_id:celery.redirected][log.py:282][WARNING][ok]
+[2018-12-21 10:51:55,278][MainThread:923616][task_id:celery.redirected][log.py:282][WARNING][test_test_testflow001_no (script.case.modulename.flowapi.flowdemo.FlowDemo)]
+[2018-12-21 10:51:55,278][MainThread:923616][task_id:celery.redirected][log.py:282][WARNING][<celery.utils.log.LoggingProxy object at 0x0000000004CA4FD0>]
+[2018-12-21 10:51:55,278][MainThread:923616][task_id:celery.redirected][log.py:282][WARNING][Time Elapsed: 0:00:00.001000]
+[2018-12-21 10:51:58,279][MainThread:923616][task_id:apitest.tasks][tasks.py:25][INFO][保存报告地址。。。]
+[2018-12-21 10:51:58,367][MainThread:923616][task_id:apitest.tasks][tasks.py:38][INFO][报告地址成功。。。]
+[2018-12-21 10:51:58,475][Thread-5:920840][task_id:celery.worker.job][job.py:402][INFO][Task apitest.tasks.demo_test[f12542b7-bd7a-46e6-a5aa-3da6355202b2] succeeded in 3.1980000003241003s: None]
+[2018-12-21 10:52:25,221][MainThread:923132][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (1)...]
+[2018-12-21 10:52:39,099][MainThread:917488][task_id:celery.redirected][log.py:282][WARNING][D:\autotest\venv\lib\site-packages\celery\apps\worker.py:162: CDeprecationWarning: 
+Starting from version 3.2 Celery will refuse to accept pickle by default.
+
+The pickle serializer is a security concern as it may give attackers
+the ability to execute any command.  It's important to secure
+your broker from unauthorized access when using pickle, so we think
+that enabling pickle should require a deliberate action and not be
+the default choice.
+
+If you depend on pickle then you should set a setting to disable this
+warning and to be sure that everything will continue working
+when you upgrade to Celery 3.2::
+
+    CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml']
+
+You must only enable the serializers that you will actually use.
+
+
+  warnings.warn(CDeprecationWarning(W_PICKLE_DEPRECATED))]
+[2018-12-21 10:52:39,263][MainThread:917488][task_id:celery.worker.consumer][consumer.py:480][INFO][Connected to redis://127.0.0.1:6379/0]
+[2018-12-21 10:52:39,286][MainThread:917488][task_id:celery.worker.consumer][consumer.py:568][INFO][mingle: searching for neighbors]
+[2018-12-21 10:52:40,343][MainThread:917488][task_id:celery.worker.consumer][consumer.py:586][INFO][mingle: all alone]
+[2018-12-21 10:52:40,370][MainThread:917488][task_id:celery.redirected][log.py:282][WARNING][D:\autotest\venv\lib\site-packages\djcelery\loaders.py:133: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warn('Using settings.DEBUG leads to a memory leak, never ']
+[2018-12-21 10:52:40,371][MainThread:917488][task_id:celery.redirected][log.py:282][WARNING][D:\autotest\venv\lib\site-packages\celery\fixups\django.py:265: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warnings.warn('Using settings.DEBUG leads to a memory leak, never ']
+[2018-12-21 10:52:40,372][MainThread:917488][task_id:celery.redirected][log.py:282][WARNING][celery@wuhong-PC ready.]
+[2018-12-21 10:53:55,269][MainThread:923132][task_id:celery.beat][beat.py:202][INFO][Scheduler: Sending due task test001 (apitest.tasks.demo_test)]
+[2018-12-21 10:53:55,272][MainThread:917488][task_id:celery.worker.strategy][strategy.py:55][INFO][Received task: apitest.tasks.demo_test[fe869f5a-f172-4f45-bf21-74671f798727]]
+[2018-12-21 10:53:55,274][MainThread:909032][task_id:apitest.tasks][tasks.py:14][INFO][demo_test start........]
+[2018-12-21 10:53:55,277][MainThread:909032][task_id:script][flowdemo.py:40][INFO][用例执行开始，用例编号：testflow001，用例名称：测试名称，用例描述：testdesc，用例参数：{"one": "onevalue", "two": "twovalue"}]
+[2018-12-21 10:53:55,278][MainThread:909032][task_id:celery.redirected][log.py:282][WARNING][ok]
+[2018-12-21 10:53:55,278][MainThread:909032][task_id:celery.redirected][log.py:282][WARNING][test_test_testflow001_no (script.case.modulename.flowapi.flowdemo.FlowDemo)]
+[2018-12-21 10:53:55,279][MainThread:909032][task_id:celery.redirected][log.py:282][WARNING][<celery.utils.log.LoggingProxy object at 0x0000000004C94FD0>]
+[2018-12-21 10:53:55,279][MainThread:909032][task_id:celery.redirected][log.py:282][WARNING][Time Elapsed: 0:00:00.001000]
+[2018-12-21 10:53:58,281][MainThread:909032][task_id:apitest.tasks][tasks.py:25][INFO][保存报告地址。。。]
+[2018-12-21 10:53:58,354][MainThread:909032][task_id:apitest.tasks][tasks.py:38][INFO][报告地址成功。。。]
+[2018-12-21 10:53:58,436][Thread-5:900904][task_id:celery.worker.job][job.py:402][INFO][Task apitest.tasks.demo_test[fe869f5a-f172-4f45-bf21-74671f798727] succeeded in 3.166999999899417s: None]
+[2018-12-21 10:55:30,112][MainThread:923132][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (1)...]
+[2018-12-21 10:55:55,271][MainThread:923132][task_id:celery.beat][beat.py:202][INFO][Scheduler: Sending due task test001 (apitest.tasks.demo_test)]
+[2018-12-21 10:55:55,274][MainThread:917488][task_id:celery.worker.strategy][strategy.py:55][INFO][Received task: apitest.tasks.demo_test[d3f3851f-041c-49b4-a1ef-4ac7e5d882c3]]
+[2018-12-21 10:55:55,275][MainThread:922740][task_id:apitest.tasks][tasks.py:14][INFO][demo_test start........]
+[2018-12-21 10:55:55,278][MainThread:922740][task_id:script][flowdemo.py:40][INFO][用例执行开始，用例编号：testflow001，用例名称：测试名称，用例描述：testdesc，用例参数：{"one": "onevalue", "two": "twovalue"}]
+[2018-12-21 10:55:55,279][MainThread:922740][task_id:celery.redirected][log.py:282][WARNING][ok]
+[2018-12-21 10:55:55,279][MainThread:922740][task_id:celery.redirected][log.py:282][WARNING][test_test_testflow001_no (script.case.modulename.flowapi.flowdemo.FlowDemo)]
+[2018-12-21 10:55:55,279][MainThread:922740][task_id:celery.redirected][log.py:282][WARNING][<celery.utils.log.LoggingProxy object at 0x0000000004BF4FD0>]
+[2018-12-21 10:55:55,279][MainThread:922740][task_id:celery.redirected][log.py:282][WARNING][Time Elapsed: 0:00:00.001000]
+[2018-12-21 10:55:58,280][MainThread:922740][task_id:apitest.tasks][tasks.py:25][INFO][保存报告地址。。。]
+[2018-12-21 10:55:58,362][MainThread:922740][task_id:apitest.tasks][tasks.py:38][INFO][报告地址成功。。。]
+[2018-12-21 10:55:58,539][Thread-5:900904][task_id:celery.worker.job][job.py:402][INFO][Task apitest.tasks.demo_test[d3f3851f-041c-49b4-a1ef-4ac7e5d882c3] succeeded in 3.2609999999403954s: None]
+[2018-12-21 10:57:55,272][MainThread:923132][task_id:celery.beat][beat.py:202][INFO][Scheduler: Sending due task test001 (apitest.tasks.demo_test)]
+[2018-12-21 10:57:55,275][MainThread:917488][task_id:celery.worker.strategy][strategy.py:55][INFO][Received task: apitest.tasks.demo_test[03f8fcb0-8bde-401c-9c1c-b6209e0ace2e]]
+[2018-12-21 10:57:55,277][MainThread:899852][task_id:apitest.tasks][tasks.py:14][INFO][demo_test start........]
+[2018-12-21 10:57:55,281][MainThread:899852][task_id:script][flowdemo.py:40][INFO][用例执行开始，用例编号：testflow001，用例名称：测试名称，用例描述：testdesc，用例参数：{"one": "onevalue", "two": "twovalue"}]
+[2018-12-21 10:57:55,281][MainThread:899852][task_id:celery.redirected][log.py:282][WARNING][ok]
+[2018-12-21 10:57:55,282][MainThread:899852][task_id:celery.redirected][log.py:282][WARNING][test_test_testflow001_no (script.case.modulename.flowapi.flowdemo.FlowDemo)]
+[2018-12-21 10:57:55,282][MainThread:899852][task_id:celery.redirected][log.py:282][WARNING][<celery.utils.log.LoggingProxy object at 0x0000000004C94FD0>]
+[2018-12-21 10:57:55,282][MainThread:899852][task_id:celery.redirected][log.py:282][WARNING][Time Elapsed: 0:00:00.002000]
+[2018-12-21 10:57:58,283][MainThread:899852][task_id:apitest.tasks][tasks.py:25][INFO][保存报告地址。。。]
+[2018-12-21 10:57:58,356][MainThread:899852][task_id:apitest.tasks][tasks.py:38][INFO][报告地址成功。。。]
+[2018-12-21 10:57:58,456][Thread-5:900904][task_id:celery.worker.job][job.py:402][INFO][Task apitest.tasks.demo_test[03f8fcb0-8bde-401c-9c1c-b6209e0ace2e] succeeded in 3.183000000193715s: None]
+[2018-12-21 10:58:30,213][MainThread:923132][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (1)...]
+[2018-12-21 10:59:55,274][MainThread:923132][task_id:celery.beat][beat.py:202][INFO][Scheduler: Sending due task test001 (apitest.tasks.demo_test)]
+[2018-12-21 10:59:55,279][MainThread:917488][task_id:celery.worker.strategy][strategy.py:55][INFO][Received task: apitest.tasks.demo_test[77819f5b-0437-42cd-aba7-4d0ab93305d1]]
+[2018-12-21 10:59:55,281][MainThread:923644][task_id:apitest.tasks][tasks.py:14][INFO][demo_test start........]
+[2018-12-21 10:59:55,284][MainThread:923644][task_id:script][flowdemo.py:40][INFO][用例执行开始，用例编号：testflow001，用例名称：测试名称，用例描述：testdesc，用例参数：{"one": "onevalue", "two": "twovalue"}]
+[2018-12-21 10:59:55,285][MainThread:923644][task_id:celery.redirected][log.py:282][WARNING][ok]
+[2018-12-21 10:59:55,289][MainThread:923644][task_id:celery.redirected][log.py:282][WARNING][test_test_testflow001_no (script.case.modulename.flowapi.flowdemo.FlowDemo)]
+[2018-12-21 10:59:55,290][MainThread:923644][task_id:celery.redirected][log.py:282][WARNING][<celery.utils.log.LoggingProxy object at 0x0000000004ECB048>]
+[2018-12-21 10:59:55,290][MainThread:923644][task_id:celery.redirected][log.py:282][WARNING][Time Elapsed: 0:00:00.005000]
+[2018-12-21 10:59:58,291][MainThread:923644][task_id:apitest.tasks][tasks.py:25][INFO][保存报告地址。。。]
+[2018-12-21 10:59:58,399][MainThread:923644][task_id:apitest.tasks][tasks.py:38][INFO][报告地址成功。。。]
+[2018-12-21 10:59:58,483][Thread-5:900904][task_id:celery.worker.job][job.py:402][INFO][Task apitest.tasks.demo_test[77819f5b-0437-42cd-aba7-4d0ab93305d1] succeeded in 3.197999999858439s: None]
+[2018-12-21 11:01:35,106][MainThread:923132][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (1)...]
+[2018-12-21 11:01:55,276][MainThread:923132][task_id:celery.beat][beat.py:202][INFO][Scheduler: Sending due task test001 (apitest.tasks.demo_test)]
+[2018-12-21 11:01:55,279][MainThread:917488][task_id:celery.worker.strategy][strategy.py:55][INFO][Received task: apitest.tasks.demo_test[9147f750-a878-43b6-a42a-7db4362518c0]]
+[2018-12-21 11:01:55,283][MainThread:923440][task_id:apitest.tasks][tasks.py:14][INFO][demo_test start........]
+[2018-12-21 11:01:55,286][MainThread:923440][task_id:script][flowdemo.py:40][INFO][用例执行开始，用例编号：testflow001，用例名称：测试名称，用例描述：testdesc，用例参数：{"one": "onevalue", "two": "twovalue"}]
+[2018-12-21 11:01:55,287][MainThread:923440][task_id:celery.redirected][log.py:282][WARNING][ok]
+[2018-12-21 11:01:55,287][MainThread:923440][task_id:celery.redirected][log.py:282][WARNING][test_test_testflow001_no (script.case.modulename.flowapi.flowdemo.FlowDemo)]
+[2018-12-21 11:01:55,288][MainThread:923440][task_id:celery.redirected][log.py:282][WARNING][<celery.utils.log.LoggingProxy object at 0x0000000004C74FD0>]
+[2018-12-21 11:01:55,288][MainThread:923440][task_id:celery.redirected][log.py:282][WARNING][Time Elapsed: 0:00:00.002001]
+[2018-12-21 11:01:58,289][MainThread:923440][task_id:apitest.tasks][tasks.py:25][INFO][保存报告地址。。。]
+[2018-12-21 11:01:58,385][MainThread:923440][task_id:apitest.tasks][tasks.py:38][INFO][报告地址成功。。。]
+[2018-12-21 11:01:58,452][Thread-5:900904][task_id:celery.worker.job][job.py:402][INFO][Task apitest.tasks.demo_test[9147f750-a878-43b6-a42a-7db4362518c0] succeeded in 3.1670000003650784s: None]
+[2018-12-21 11:03:55,277][MainThread:923132][task_id:celery.beat][beat.py:202][INFO][Scheduler: Sending due task test001 (apitest.tasks.demo_test)]
+[2018-12-21 11:03:55,280][MainThread:917488][task_id:celery.worker.strategy][strategy.py:55][INFO][Received task: apitest.tasks.demo_test[bbf24c70-1f09-414a-b543-c2b4d0163310]]
+[2018-12-21 11:03:55,282][MainThread:922896][task_id:apitest.tasks][tasks.py:14][INFO][demo_test start........]
+[2018-12-21 11:03:55,285][MainThread:922896][task_id:script][flowdemo.py:40][INFO][用例执行开始，用例编号：testflow001，用例名称：测试名称，用例描述：testdesc，用例参数：{"one": "onevalue", "two": "twovalue"}]
+[2018-12-21 11:03:55,285][MainThread:922896][task_id:celery.redirected][log.py:282][WARNING][ok]
+[2018-12-21 11:03:55,285][MainThread:922896][task_id:celery.redirected][log.py:282][WARNING][test_test_testflow001_no (script.case.modulename.flowapi.flowdemo.FlowDemo)]
+[2018-12-21 11:03:55,286][MainThread:922896][task_id:celery.redirected][log.py:282][WARNING][<celery.utils.log.LoggingProxy object at 0x0000000004BF4FD0>]
+[2018-12-21 11:03:55,286][MainThread:922896][task_id:celery.redirected][log.py:282][WARNING][Time Elapsed: 0:00:00.001000]
+[2018-12-21 11:03:58,287][MainThread:922896][task_id:apitest.tasks][tasks.py:25][INFO][保存报告地址。。。]
+[2018-12-21 11:03:58,439][MainThread:922896][task_id:apitest.tasks][tasks.py:38][INFO][报告地址成功。。。]
+[2018-12-21 11:03:58,548][Thread-5:900904][task_id:celery.worker.job][job.py:402][INFO][Task apitest.tasks.demo_test[bbf24c70-1f09-414a-b543-c2b4d0163310] succeeded in 3.2760000000707805s: None]
+[2018-12-21 11:04:35,210][MainThread:923132][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (1)...]
+[2018-12-21 11:05:55,280][MainThread:923132][task_id:celery.beat][beat.py:202][INFO][Scheduler: Sending due task test001 (apitest.tasks.demo_test)]
+[2018-12-21 11:05:55,283][MainThread:917488][task_id:celery.worker.strategy][strategy.py:55][INFO][Received task: apitest.tasks.demo_test[6ff07bfd-17dd-4e21-94ca-d440d53d981c]]
+[2018-12-21 11:05:55,285][MainThread:909032][task_id:apitest.tasks][tasks.py:14][INFO][demo_test start........]
+[2018-12-21 11:05:55,286][MainThread:909032][task_id:script][flowdemo.py:40][INFO][用例执行开始，用例编号：testflow001，用例名称：测试名称，用例描述：testdesc，用例参数：{"one": "onevalue", "two": "twovalue"}]
+[2018-12-21 11:05:55,290][MainThread:909032][task_id:celery.redirected][log.py:282][WARNING][ok]
+[2018-12-21 11:05:55,290][MainThread:909032][task_id:celery.redirected][log.py:282][WARNING][test_test_testflow001_no (script.case.modulename.flowapi.flowdemo.FlowDemo)]
+[2018-12-21 11:05:55,291][MainThread:909032][task_id:celery.redirected][log.py:282][WARNING][<celery.utils.log.LoggingProxy object at 0x0000000004C94FD0>]
+[2018-12-21 11:05:55,291][MainThread:909032][task_id:celery.redirected][log.py:282][WARNING][Time Elapsed: 0:00:00.005000]
+[2018-12-21 11:05:58,292][MainThread:909032][task_id:apitest.tasks][tasks.py:25][INFO][保存报告地址。。。]
+[2018-12-21 11:05:58,390][MainThread:909032][task_id:apitest.tasks][tasks.py:38][INFO][报告地址成功。。。]
+[2018-12-21 11:05:58,450][Thread-5:900904][task_id:celery.worker.job][job.py:402][INFO][Task apitest.tasks.demo_test[6ff07bfd-17dd-4e21-94ca-d440d53d981c] succeeded in 3.1509999996051192s: None]
+[2018-12-21 11:06:28,572][MainThread:922200][task_id:celery.redirected][log.py:282][WARNING][D:\autotest\venv\lib\site-packages\celery\apps\worker.py:162: CDeprecationWarning: 
+Starting from version 3.2 Celery will refuse to accept pickle by default.
+
+The pickle serializer is a security concern as it may give attackers
+the ability to execute any command.  It's important to secure
+your broker from unauthorized access when using pickle, so we think
+that enabling pickle should require a deliberate action and not be
+the default choice.
+
+If you depend on pickle then you should set a setting to disable this
+warning and to be sure that everything will continue working
+when you upgrade to Celery 3.2::
+
+    CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml']
+
+You must only enable the serializers that you will actually use.
+
+
+  warnings.warn(CDeprecationWarning(W_PICKLE_DEPRECATED))]
+[2018-12-21 11:06:28,688][MainThread:922200][task_id:celery.worker.consumer][consumer.py:480][INFO][Connected to redis://127.0.0.1:6379/0]
+[2018-12-21 11:06:28,739][MainThread:922200][task_id:celery.worker.consumer][consumer.py:568][INFO][mingle: searching for neighbors]
+[2018-12-21 11:06:29,747][MainThread:922200][task_id:celery.worker.consumer][consumer.py:586][INFO][mingle: all alone]
+[2018-12-21 11:06:30,038][MainThread:922200][task_id:celery.redirected][log.py:282][WARNING][D:\autotest\venv\lib\site-packages\djcelery\loaders.py:133: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warn('Using settings.DEBUG leads to a memory leak, never ']
+[2018-12-21 11:06:30,039][MainThread:922200][task_id:celery.redirected][log.py:282][WARNING][D:\autotest\venv\lib\site-packages\celery\fixups\django.py:265: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warnings.warn('Using settings.DEBUG leads to a memory leak, never ']
+[2018-12-21 11:06:30,039][MainThread:922200][task_id:celery.redirected][log.py:282][WARNING][celery@wuhong-PC ready.]
+[2018-12-21 11:07:40,105][MainThread:923132][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (1)...]
+[2018-12-21 11:07:55,282][MainThread:923132][task_id:celery.beat][beat.py:202][INFO][Scheduler: Sending due task test001 (apitest.tasks.demo_test)]
+[2018-12-21 11:07:55,287][MainThread:922200][task_id:celery.worker.strategy][strategy.py:55][INFO][Received task: apitest.tasks.demo_test[aa560233-8e35-4e35-9945-e49e9b0ca2ca]]
+[2018-12-21 11:07:55,293][MainThread:901280][task_id:apitest.tasks][tasks.py:14][INFO][demo_test start........]
+[2018-12-21 11:07:55,295][MainThread:901280][task_id:script][flowdemo.py:40][INFO][用例执行开始，用例编号：testflow001，用例名称：测试名称，用例描述：testdesc，用例参数：{"one": "onevalue", "two": "twovalue"}]
+[2018-12-21 11:07:55,296][MainThread:901280][task_id:celery.redirected][log.py:282][WARNING][ok]
+[2018-12-21 11:07:55,297][MainThread:901280][task_id:celery.redirected][log.py:282][WARNING][test_test_testflow001_no (script.case.modulename.flowapi.flowdemo.FlowDemo)]
+[2018-12-21 11:07:55,299][MainThread:901280][task_id:celery.redirected][log.py:282][WARNING][<celery.utils.log.LoggingProxy object at 0x0000000004C73F60>]
+[2018-12-21 11:07:55,299][MainThread:901280][task_id:celery.redirected][log.py:282][WARNING][Time Elapsed: 0:00:00.002000]
+[2018-12-21 11:07:58,301][MainThread:901280][task_id:apitest.tasks][tasks.py:25][INFO][保存报告地址。。。]
+[2018-12-21 11:07:58,392][MainThread:901280][task_id:apitest.tasks][tasks.py:38][INFO][报告地址成功。。。]
+[2018-12-21 11:07:58,494][Thread-5:923288][task_id:celery.worker.job][job.py:402][INFO][Task apitest.tasks.demo_test[aa560233-8e35-4e35-9945-e49e9b0ca2ca] succeeded in 3.214000000152737s: None]
+[2018-12-21 11:08:21,507][MainThread:923132][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (1)...]
+[2018-12-21 11:08:21,586][MainThread:923132][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 11:08:21,587][MainThread:923132][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 11:08:21,588][MainThread:923132][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 11:08:24,039][MainThread:923852][task_id:celery.beat][beat.py:468][INFO][beat: Starting...]
+[2018-12-21 11:08:24,040][MainThread:923852][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 11:08:29,333][MainThread:923852][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 11:11:34,022][MainThread:923852][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 11:14:38,711][MainThread:923852][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 11:17:43,397][MainThread:923852][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 11:20:48,081][MainThread:923852][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 11:23:52,769][MainThread:923852][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 11:26:57,455][MainThread:923852][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 11:30:02,144][MainThread:923852][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 11:33:06,837][MainThread:923852][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 11:36:11,524][MainThread:923852][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 11:39:16,208][MainThread:923852][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 11:42:20,889][MainThread:923852][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 11:45:25,574][MainThread:923852][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 11:48:30,259][MainThread:923852][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 11:48:46,110][MainThread:923852][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 11:48:46,111][MainThread:923852][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 11:48:46,112][MainThread:923852][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-21 11:48:46,113][MainThread:923852][task_id:djcelery.schedulers][schedulers.py:213][INFO][Writing entries (0)...]
+[2018-12-24 16:38:19,343][Thread-5:1030336][task_id:django.request][log.py:228][WARNING][Not Found: /favicon.ico]
+[2018-12-24 16:38:34,933][Thread-8:1029328][task_id:django.request][log.py:228][WARNING][Not Found: /favicon.ico]
+[2018-12-25 10:19:43,041][Thread-1:1053080][task_id:django.request][log.py:228][WARNING][Not Found: /favicon.ico]
+[2018-12-25 10:19:45,781][Thread-5:1029056][task_id:django.request][log.py:228][WARNING][Not Found: /favicon.ico]
